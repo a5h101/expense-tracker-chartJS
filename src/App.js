@@ -6,13 +6,10 @@ import './App.css';
 function App() {
   const [expenses, setExpenses] = useState([]);
   const [chartData, setChartData] = useState(null);
+  const [currentExpense, setCurrentExpense] = useState(null);
 
   const addExpense = expense => {
-    setExpenses(prevExpenses => {
-      return [...prevExpenses, expense];
-    });
-    // console.log(expenses);
-    // expenses.sort();
+    setExpenses(prevExpenses => [...prevExpenses, expense]);
   };
 
   useEffect(() => {
@@ -22,20 +19,32 @@ function App() {
   }, [expenses]);
 
   const remove = i => {
-    setExpenses(prevExpenses => {
-      const newExpenses = [...prevExpenses];
-      newExpenses.splice(i, 1);
-      return newExpenses;
-    });
+    setExpenses(prevExpenses => prevExpenses.filter((_, index) => index !== i));
+  };
+
+  const edit = i => {
+    setCurrentExpense({ ...expenses[i], index: i });
+    console.log(currentExpense);
   };
 
   const handleSubmit = event => {
+    console.log(expenses, 'hi', currentExpense);
     event.preventDefault();
     const name = event.target.name.value;
     const amount = event.target.amount.value;
     const date = event.target.date.value;
+    console.log(name, amount, date);
     if (name && amount && date) {
-      addExpense({ name, amount, date });
+      if (currentExpense !== null) {
+        setExpenses(prevExpenses => {
+          const newExpenses = [...prevExpenses];
+          newExpenses[currentExpense.index] = { name, amount, date };
+          return newExpenses;
+        });
+        setCurrentExpense(null); // reset the currentExpense state
+      } else {
+        addExpense({ name, amount, date });
+      }
       event.target.reset();
     }
   };
@@ -53,10 +62,27 @@ function App() {
       <div id="box">
         <div>
           <form onSubmit={handleSubmit}>
-            <input type="text" name="name" placeholder="Expense Name" />
-            <input type="number" name="amount" placeholder="Amount" />
-            <input type="date" name="date" placeholder="Date" />
-            <button type="submit">Add Expense</button>
+            <input
+              type="text"
+              name="name"
+              placeholder="Expense Name"
+              defaultValue={currentExpense?.name}
+            />
+            <input
+              type="number"
+              name="amount"
+              placeholder="Amount"
+              defaultValue={currentExpense?.amount}
+            />
+            <input
+              type="date"
+              name="date"
+              placeholder="Date"
+              defaultValue={currentExpense?.date}
+            />
+            <button type="submit">
+              {currentExpense !== null ? 'Update Expense' : 'Add Expense'}
+            </button>
           </form>
           <div className="expenses">
             {expenses.map((expense, index) => (
@@ -67,6 +93,7 @@ function App() {
                 amount={expense.amount}
                 date={expense.date}
                 remove={remove}
+                edit={edit}
               />
             ))}
           </div>

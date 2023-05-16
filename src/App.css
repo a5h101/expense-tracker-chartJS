@@ -10,6 +10,7 @@
   justify-content: center;
   margin-top: 2%;
   flex-direction: column;
+  margin-bottom: 5%;
 }
 .display {
   margin: 1rem;

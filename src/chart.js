@@ -1,5 +1,5 @@
 import { Chart as ChartJS, registerables } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line, Pie } from 'react-chartjs-2';
 import './App.css';
 
 ChartJS.register(...registerables);
@@ -11,8 +11,9 @@ const BarChart = ({ chartData }) => {
       {
         label: 'Expense',
         data: [...chartData.data],
-        backgroundColor: 'rgba(92,9,192,1)',
-        borderWidth: 1,
+        backgroundColor: 'purple',
+        borderWidth: 3,
+        borderColor: 'white',
       },
     ],
     options: {
@@ -24,6 +25,8 @@ const BarChart = ({ chartData }) => {
     <>
       <div id="graph">
         <Bar className="graph" data={data} />
+        <Line className="graph" data={data} />
+        <Pie className="graph" data={data} />
       </div>
     </>
   );
