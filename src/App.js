@@ -34,8 +34,10 @@ function App() {
     const name = event.target.name.value;
     const amount = event.target.amount.value;
     const date = event.target.date.value;
-    if (name && amount && date) addExpense({ name, amount, date });
-    event.target.reset();
+    if (name && amount && date) {
+      addExpense({ name, amount, date });
+      event.target.reset();
+    }
   };
 
   useEffect(() => {
