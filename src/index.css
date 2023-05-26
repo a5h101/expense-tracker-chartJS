@@ -5,11 +5,43 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: rgb(19, 19, 19); */
+  background-color: rgb(255, 192, 192);
   /* color: white; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+#box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.charts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#graph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  background-color: rgb(255, 192, 192);
+  border-color: aliceblue;
+  width: 5rem;
+  height: 2rem;
+}
+button:hover {
+  cursor: pointer;
+}
+form {
+  /* height: rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
 }

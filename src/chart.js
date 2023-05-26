@@ -11,14 +11,14 @@ const BarChart = ({ chartData }) => {
       {
         label: 'Expense',
         data: [...chartData.data],
-        backgroundColor: 'purple',
+        backgroundColor: 'red',
         borderWidth: 3,
         borderColor: 'white',
       },
     ],
     options: {
-      width: 1200,
-      height: 600,
+      width: 800,
+      height: 500,
     },
   };
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ExpenseItem from './ExpenseItem';
 import BarChart from './chart';
-import './App.css';
+import './index.css';
 
 function App() {
   const [expenses, setExpenses] = useState([]);
@@ -80,7 +80,7 @@ function App() {
               placeholder="Date"
               defaultValue={currentExpense?.date}
             />
-            <button type="submit">
+            <button className="submit" type="submit">
               {currentExpense !== null ? 'Update Expense' : 'Add Expense'}
             </button>
           </form>
@@ -98,7 +98,9 @@ function App() {
             ))}
           </div>
         </div>
-        <div>{chartData && expenses && <BarChart chartData={chartData} />}</div>
+        <div className="charts">
+          {chartData && expenses && <BarChart chartData={chartData} />}
+        </div>
       </div>
     </>
   );

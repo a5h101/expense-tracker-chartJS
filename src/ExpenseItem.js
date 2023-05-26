@@ -6,9 +6,11 @@ function ExpenseItem({ name, amount, date, remove, index, edit }) {
     <div className="display">
       <button onClick={() => edit(index)}>Edit</button>
       <br />
-      <div>{name}</div>
-      <div>{amount}</div>
-      <div>{date}</div>
+      <div className="info">
+        <div className="info-in">{name}</div>
+        <div className="info-in">{amount}</div>
+        <div className="info-in">{date}</div>
+      </div>
       <br />
       <button onClick={() => remove(index)}>Delete</button>
     </div>

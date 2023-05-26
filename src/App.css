@@ -1,8 +1,9 @@
 #graph {
-  width: 50rem;
+  width: 25rem;
+  height: 35rem;
 }
 .graph {
-  width: 50rem;
+  width: 30rem;
 }
 #box {
   display: flex;
@@ -19,13 +20,56 @@
   justify-content: center;
   flex-direction: column;
   text-transform: capitalize;
+  font-size: 1rem;
+  font-family: 'Be Vietman Pro';
+  padding: 1rem;
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: rgb(255, 213, 159);
 }
 .expenses {
-  margin: 1rem;
+  /* margin: 1rem; */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: row;
   /* width: 90vw; */
   /* overflow: scroll; */
+}
+input {
+  height: 2rem;
+  padding: 0 1rem;
+  font-size: 0.8rem;
+  outline: none;
+  border-radius: 5px;
+  margin: 0 2px;
+  border-color: #fb0202;
+  /* margin-bottom: 1rem; */
+}
+.submit {
+  height: 2.25rem;
+  width: 6rem;
+  margin-left: 2rem;
+  background-color: black;
+  color: #ffffff;
+}
+
+.submit:hover {
+  cursor: pointer;
+  height: 2.25rem;
+  width: 6rem;
+  margin-left: 2rem;
+  background-color: black;
+  color: #ffffff;
+  box-shadow: 0px 3px 5px 0px rgb(255, 255, 255);
+}
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.info-in {
+  font-size: 1rem;
+  font-weight: 500;
 }
